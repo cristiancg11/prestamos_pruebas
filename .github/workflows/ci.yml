@@ -38,8 +38,7 @@ jobs:
           DJANGO_SETTINGS_MODULE: config.settings.local
         run: pytest --cov=apps --cov-report=xml:coverage.xml --cov-report=term-missing
 
-      - name: SonarCloud Scan (when SONAR_TOKEN is configured)
-        if: ${{ secrets.SONAR_TOKEN != '' }}
+      - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
